@@ -8,12 +8,12 @@ locals {
 
   private_subnets = {
 
-    public_1 = {
+    private_1 = {
       cidr = cidrsubnet(local.vpc_cidr, 3, 2)
       az   = "us-east-1a"
     }
 
-    public_2 = {
+    private_2 = {
       cidr = cidrsubnet(local.vpc_cidr, 3, 3)
       az   = "us-east-1b"
     }
