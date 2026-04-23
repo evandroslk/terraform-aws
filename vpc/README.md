@@ -118,7 +118,7 @@ Utilizado para criar recursos condicionalmente baseado em uma expressão ternár
 **Definição no locals:**
 ```hcl
 locals {
-  create_isolated_subnets = false
+  create_isolated_subnets = true
 }
 ```
 
@@ -141,7 +141,7 @@ resource "aws_subnet" "isolated_zone1" {
 
 ### dynamic
 
-Utilizado para criar blocos dinamicamente dentro de recursos. Ideal para regras defirewall ou entradas em listas.
+Utilizado para criar blocos dinamicamente dentro de recursos. Ideal para regras de firewall ou entradas em listas.
 
 **Definição no locals:**
 ```hcl
@@ -179,7 +179,7 @@ resource "aws_security_group" "web" {
 Bloco que define variáveis reutilizáveis em todo o módulo. Suporta:
 - **Listas**: `["a", "b", "c"]`
 - **Mapas**: `{ key1 = "value1", key2 = "value2" }`
-- **Objectos**: `{ key = { attr1 = "value", attr2 = "value" } }`
+- **Objetos**: `{ key = { attr1 = "value", attr2 = "value" } }`
 - **Funções**: `cidrsubnet()`, `length()`, etc.
 
 ## Variáveis Locais
@@ -187,10 +187,10 @@ Bloco que define variáveis reutilizáveis em todo o módulo. Suporta:
 | Variável | Descrição | Valor Padrão |
 |---------|-----------|-------------|
 | region | Região AWS | us-east-1 |
-| vpc_cidr | CIDR da VPC | 10.0.0.0/16 |
+| vpc_cidr | CIDR da VPC | 10.75.0.0/16 |
 | env | Ambiente | dev |
 | azs | Zonas de disponibilidade | ["us-east-1a", "us-east-1b"] |
-| public_subnets | CIDRs das subnets públicas | ["10.0.0.0/19", "10.0.32.0/19"] |
+| public_subnets | CIDRs das subnets públicas | ["10.75.0.0/19", "10.75.32.0/19"] |
 | private_subnets | Mapa de subnets privadas | { public_1 = {...}, public_2 = {...} } |
-| create_isolated_subnets | Criar subnets isoladas | false |
+| create_isolated_subnets | Criar subnets isoladas | true |
 | ingress_rules | Regras de ingresso do SG | { 22 = [...], 80 = [...] } |
