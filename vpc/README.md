@@ -59,11 +59,11 @@ locals {
   vpc_cidr = "10.0.0.0/16"
   
   private_subnets = {
-    public_1 = {
+    private_1 = {
       cidr = cidrsubnet(local.vpc_cidr, 3, 2)
       az   = "us-east-1a"
     }
-    public_2 = {
+    private_2 = {
       cidr = cidrsubnet(local.vpc_cidr, 3, 3)
       az   = "us-east-1b"
     }
@@ -86,7 +86,7 @@ resource "aws_subnet" "private" {
 }
 ```
 
-**Acesso:** `aws_subnet.private["public_1"].id`
+**Acesso:** `aws_subnet.private["private_1"].id`
 
 ---
 
