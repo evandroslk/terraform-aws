@@ -1,10 +1,10 @@
 locals {
   region   = "us-east-1"
-  vpc_cidr = "10.0.0.0/16"
+  vpc_cidr = "10.75.0.0/16"
   env      = "dev"
 
   azs            = ["us-east-1a", "us-east-1b"]
-  public_subnets = ["10.0.0.0/19", "10.0.32.0/19"]
+  public_subnets = ["10.75.0.0/19", "10.75.32.0/19"]
 
   private_subnets = {
 
@@ -20,7 +20,7 @@ locals {
 
   }
 
-  create_isolated_subnets = false
+  create_isolated_subnets = true
 
   ingress_rules = {
     22 = ["63.10.10.10/32", "8.8.8.8/32"]
